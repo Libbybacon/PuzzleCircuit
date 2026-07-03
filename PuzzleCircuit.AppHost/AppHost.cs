@@ -1,9 +1,9 @@
 IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
 
-// Resource name "puzzlecircuit-server" must match the service discovery env var
-// read in vite.config.ts: services__puzzlecircuit-server__https__0
+// Resource name "puzzlecircuit-api" must match the service discovery env var
+// read in vite.config.ts: services__puzzlecircuit-api__https__0
 IResourceBuilder<ProjectResource> api = builder
-    .AddProject<Projects.PuzzleCircuit_API>("puzzlecircuit-server");
+    .AddProject<Projects.PuzzleCircuit_API>("puzzlecircuit-api");
 
 builder.AddNpmApp("puzzlecircuit-client", "../puzzlecircuit.client", "dev")
     .WithReference(api)

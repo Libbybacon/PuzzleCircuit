@@ -1,0 +1,6 @@
+@PuzzleCircuit.API_HostAddress = http://localhost:5276
+
+GET {{PuzzleCircuit.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

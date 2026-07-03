@@ -4,6 +4,6 @@
     <Build />
   </Project>
   <Project Path="PuzzleCircuit.DAL/PuzzleCircuit.DAL.csproj" Id="aac931b6-c998-4e48-87e7-bd147a8e800d" />
-  <Project Path="PuzzleCircuit.Server/PuzzleCircuit.API.csproj" />
+  <Project Path="PuzzleCircuit.API/PuzzleCircuit.API.csproj" />
   <Project Path="PuzzleCircuit.ServiceDefaults/PuzzleCircuit.ServiceDefaults.csproj" />
 </Solution>

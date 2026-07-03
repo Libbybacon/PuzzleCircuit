@@ -35,7 +35,7 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
     }
 }
 
-const target = env["services__puzzlecircuit-server__https__0"] ?? 'https://localhost:7205';
+const target = env["services__puzzlecircuit-api__https__0"] ?? 'https://localhost:7205';
 
 export default defineConfig({
     plugins: [plugin()],

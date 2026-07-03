@@ -9,12 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.4.6" />
     <PackageReference Include="MessagePack" Version="3.1.7" />
-    <PackageReference Include="Aspire.Hosting.NodeJs" Version="9.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PuzzleCircuit.Server\PuzzleCircuit.API.csproj" />
+    <ProjectReference Include="..\PuzzleCircuit.API\PuzzleCircuit.API.csproj" />
   </ItemGroup>
 
 </Project>
