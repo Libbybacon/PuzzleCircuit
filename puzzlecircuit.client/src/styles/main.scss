@@ -1,0 +1,173 @@
+@use 'variables' as *;
+@use 'bootstrap/scss/bootstrap';
+@use 'navbar';
+
+:root {
+	// Purple / mauve palette
+	--color-purple-dark: #{$color-purple-dark};
+	--color-purple-mid: #{$color-purple-mid};
+	--color-purple-light: #{$color-purple-light};
+	// Teal / mint-green palette
+	--color-teal-dark: #{$color-teal-deep};
+	--color-teal-mid: #{$color-teal-mid};
+	--color-teal-bright: #{$color-teal-bright};
+	--color-mint-mid: #{$color-mint-mid};
+	--color-mint-soft: #{$color-mint-soft};
+	--color-mint-pale: #{$color-mint-pale};
+	// Blues
+	--color-blue-deep: #{$color-blue-deep};
+	--color-blue-dusty: #{$color-blue-dusty};
+	--color-blue-muted: #{$color-blue-muted};
+	--color-blue-pale: #{$color-blue-pale};
+	--color-blue-mist: #{$color-blue-mist};
+	// Greens
+	--color-seafoam: #{$color-seafoam};
+	--color-sage: #{$color-sage};
+	// Creams / Neutrals
+	--color-cream: #{$color-cream};
+	--color-sand-light: #{$color-sand-light};
+	--color-white: #{$color-white};
+	// Neutral Scale
+	--color-neutral-900: #{$color-neutral-900};
+	--color-neutral-800: #{$color-neutral-800};
+	--color-neutral-700: #{$color-neutral-700};
+	--color-neutral-600: #{$color-neutral-600};
+	--color-neutral-500: #{$color-neutral-500};
+	--color-neutral-400: #{$color-neutral-400};
+	--color-neutral-300: #{$color-neutral-300};
+	--color-neutral-200: #{$color-neutral-200};
+	--color-neutral-50: #{$color-neutral-50};
+}
+
+body {
+	height: 100vh;
+	background-color: var(--color-blue-mist);
+	background-image: url(../../public/background.png);
+}
+
+.top-nav{
+	box-shadow: 2px 1px 4px rgba(0,0,0,.5);
+	background-color: var(--color-blue-deep);
+	color: var(--color-cream);
+}
+.bg {
+	&-dk{
+		background-color: var(--color-blue-dusty);
+	}
+	&-teal-dk {
+		background-color: var(--color-teal-dark);
+	}
+
+	&-teal-mid {
+		background-color: var(--color-teal-mid);
+	}
+
+	&-teal-bright {
+		background-color: var(--color-teal-bright);
+	}
+
+	&-mint-mid {
+		background-color: var(--color-mint-mid);
+	}
+
+	&-mint-soft {
+		background-color: var(--color-mint-soft);
+	}
+
+	&-mint-pale {
+		background-color: var(--color-mint-pale);
+	}
+
+	&-purple-dk {
+		background-color: var(--color-purple-dark)
+	}
+
+	&-purple-mid {
+		background-color: var(--color-purple-mid)
+	}
+
+	&-purple-light {
+		background-color: var(--color-purple-light)
+	}
+}
+
+.text {
+	&-cream{
+		color: var(--color-cream);
+	}
+	&-teal-dk {
+		color: var(--color-teal-dark);
+	}
+
+	&-teal-mid {
+		color: var(--color-teal-mid);
+	}
+
+	&-teal-bright {
+		color: var(--color-teal-bright) !important;
+	}
+
+	&-mint-mid {
+		color: var(--color-mint-mid);
+	}
+
+	&-mint-soft {
+		color: var(--color-mint-soft);
+	}
+
+	&-mint-pale {
+		color: var(--color-mint-pale);
+	}
+
+}
+
+.flex-center{
+	display: flex;
+	justify-content:center;
+}
+
+.form-error {
+	color: red;
+	font-size: .8rem;
+	font-weight: 500;
+	text-align: center;
+}
+
+.nowrap {
+	white-space:nowrap;
+}
+.cursive {
+	font-family: 'Curlz MT'
+}
+
+.title-text {
+	font-size: 3.5rem;
+	text-shadow: 2px 2px 2px var(--color-purple-mid);
+}
+.title-subtext {
+	font-style:italic;
+	text-align: center;
+}
+
+.login-box {
+	border: 2px groove var(--color-mint-pale);
+	border-radius: 4px;
+	width: 50%;
+	padding-top: 1rem;
+}
+
+.pc-btn {
+	color: var(--color-purple-dark);
+	background-color: var(--color-purple-light);
+	border: 1px groove var(--color-purple-dark);
+	border-radius: 4px;
+	padding: 5px 10px;
+	font-weight: 500;
+
+	&:hover{
+		cursor: pointer;
+		color: var(--color-purple-light);
+		background-color: var(--color-purple-dark);
+	}
+
+}
