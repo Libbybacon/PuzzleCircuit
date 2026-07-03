@@ -1,0 +1,49 @@
+name: Trigger auto deployment for puzzle-circuit-app
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ master ]
+    paths:
+    - '**'
+    - '.github/workflows/puzzle-circuit-app-AutoDeployTrigger-34008956-aceb-474a-a046-72a28be2248b.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:      
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.PUZZLECIRCUITAPP_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.PUZZLECIRCUITAPP_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.PUZZLECIRCUITAPP_AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }}PuzzleCircuit.API/Dockerfile 
+          _dockerfilePathKey_: _dockerfilePath_
+          _targetLabelKey_: _targetLabel_
+          registryUrl: pccontainerregistry-ewghbufzhjfvh0gu.azurecr.io
+          registryUsername: ${{ secrets.PUZZLECIRCUITAPP_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.PUZZLECIRCUITAPP_REGISTRY_PASSWORD }}
+          containerAppName: puzzle-circuit-app
+          resourceGroup: PuzzleCircuit
+          imageToBuild: pccontainerregistry-ewghbufzhjfvh0gu.azurecr.io/puzzle-circuit-app:${{ github.sha }}
+          _buildArgumentsKey_: |
+            _buildArgumentsValues_
+
+
