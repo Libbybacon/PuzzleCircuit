@@ -12,8 +12,10 @@ builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 
 #region Services
+string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 builder.AddServiceDefaults();
 builder.Services.AddLogging();
@@ -86,6 +88,10 @@ builder.Services.RegisterAppServices();
 #region Middleware
 
 WebApplication app = builder.Build();
+
+using (IServiceScope migrationScope = app.Services.CreateScope()) {
+    migrationScope.ServiceProvider.GetRequiredService<AppDbContext>().Database.Migrate();
+}
 
 if (app.Environment.IsDevelopment()) {
     app.UseDeveloperExceptionPage();
