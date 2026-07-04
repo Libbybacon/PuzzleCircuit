@@ -121,6 +121,7 @@ app.UseCors("Frontend");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapFallbackToFile("index.html");
 
 if (app.Environment.IsDevelopment()) {
     app.MapOpenApi();
